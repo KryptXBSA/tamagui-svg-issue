@@ -1,6 +1,7 @@
 
 import * as React from "react"
 import Svg, { SvgProps, Path } from "react-native-svg"
+import { themed } from "./themed"
 
 const SvgComponent = (props: SvgProps) => (
   <Svg
@@ -29,4 +30,13 @@ const SvgComponent = (props: SvgProps) => (
   </Svg>
 )
 
-export default SvgComponent
+SvgComponent.displayName = 'CustomIcon'
+
+import { ColorTokens, SizeTokens, ThemeTokens } from '@tamagui/core'
+
+export type IconProps = SvgProps & {
+  size?: number | SizeTokens
+  color?: (ColorTokens | ThemeTokens | (string & {})) | null
+  style?: any
+}
+export  const CustomIcon = React.memo<IconProps>(themed(SvgComponent))
