@@ -1,20 +1,11 @@
-
-import * as React from "react"
-import Svg, { SvgProps, Path } from "react-native-svg"
+import * as React from 'react'
+import { Svg, SvgProps, Path } from 'react-native-svg'
 import { ColorTokens, SizeTokens, ThemeTokens } from '@tamagui/core'
-import { themed } from "./themed"
+import { themed } from './themed'
 
 const SvgComponent = (props: SvgProps) => (
-  <Svg
-    width={27}
-    height={26}
-    fill="none"
-    {...props}
-  >
-    <Path
-      fill="#D9D9D9"
-      d="M.502 0h26v26h-26z"
-    />
+  <Svg width={27} height={26} fill="none" {...props}>
+    <Path fill="#D9D9D9" d="M.502 0h26v26h-26z" />
     <Path
       d="m23.703 6.951-9.975-5.868-9.976 5.868v11.736l9.976 5.868 9.975-5.867V6.95Z"
       stroke="#FEB95A"
@@ -38,4 +29,4 @@ type IconProps = SvgProps & {
   color?: (ColorTokens | ThemeTokens | (string & {})) | null
   style?: any
 }
-export  const CustomIcon = React.memo<IconProps>(themed(SvgComponent))
+export const CustomIcon = React.memo<IconProps>(themed(SvgComponent))
